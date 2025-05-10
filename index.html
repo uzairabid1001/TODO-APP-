@@ -1,0 +1,91 @@
+<!DOCTYPE html>  
+<html lang="en">        
+    <head> 
+        <meta charset="UTF-8"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Todo Application</title>  
+        <script src="https://www.gstatic.com/firebasejs/7.18.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.18.0/firebase-database.js"></script>
+   
+        <style>
+            body{
+                background-color: black;
+                color: white;
+            }
+            .deletebtn{ 
+                background-color: red;
+                border: none; 
+                color: black;
+                margin: 10px;
+                padding: 10px;
+                border-radius: 10px;
+                box-shadow: 0 0 20px red;
+            } 
+
+            .Editbtn{
+              
+                border: none; 
+                color: black;
+                margin: 10px;
+                padding: 10px;
+                border-radius: 10px;
+    
+                background-color: orange;
+                border: none;
+                color: black;
+                box-shadow: 0 0 20px orange;
+            }
+            .addbtn{
+                border: none; 
+                color: black;
+                margin:0 5px;
+                padding: 10px;
+                border-radius: 10px;
+    
+                background-color: rgb(0, 132, 255);
+                border: none;
+                color: black;
+                box-shadow: 0 0 20px rgb(0, 132, 255);
+            } .delbtn{
+                border: none; 
+                color: black;
+                margin: 0 5px;
+                padding: 10px;
+                border-radius: 10px;
+    
+                background-color: red;
+                border: none;
+                color: black;
+                box-shadow: 0 0 20px red;
+            }
+.inp{
+padding: 2px;
+border: 1px solid black;
+border-radius: 5px;
+/* margin-top:10px ; */
+}
+input{
+    outline: none;
+    border: none;
+    font-size: 20px;
+}
+
+        </style> 
+    </head>
+    <body>
+        <div style="text-align: center;padding: 10px;border-radius: 10px; border: 2px dotted white; font-family: Arial, Helvetica, sans-serif;font-size: 26px; width: 50%; margin:auto ;">
+        <div>
+            <h1 class="text-3xl font-bold underline">Todo App</h1>
+        </div>
+        <div >
+            <span class="inp"><input  required type="text" id="todoInput"></span>
+            <button class="addbtn" onclick="addTodo()">Add Items</button>
+            <button  class="delbtn" onclick="deleteAllTodos()">Delete all Items</button>
+        </div>
+        <div style="text-align: center; padding: 10px;">
+            <ul style="text-align: center;" id="items_data"></ul>
+        </div>
+    </div>
+    </body>
+    <script src="app.js"></script>
+</html>
