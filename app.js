@@ -16,7 +16,7 @@ const firebaseConfig = {
     .database()
     .ref("todos")
     .on("child_added", function (data) {
-      console.log(data.val());
+      // console.log(data.val());
   
       var liELement = document.createElement("li");
   
@@ -59,14 +59,18 @@ const firebaseConfig = {
       liELement.appendChild(DelbtnElement);
   
   
-      console.log(liELement);
+      // console.log(liELement);
     });
   
   function addTodo() {
-    
     try {
       var todoInput = document.getElementById("todoInput");
-  
+      const taskText = todoInput.value.trim();
+        if (taskText === "") {
+          alert("Please enter a task.");
+          return;
+        }
+      
       var id = firebase.database().ref("todos").push().key;
   
       var obj = {
@@ -76,7 +80,7 @@ const firebaseConfig = {
   
       firebase.database().ref(`todos/${id}`).set(obj);
   
-    //   todoInput.value = "";
+      todoInput.value = "";
   
     todoInput.innerText=""
     } catch (error) {
@@ -98,7 +102,7 @@ const firebaseConfig = {
   }
   
   function EditSingleTodo(e) {
-    var userInput = prompt("Enter Updated value");
+    var userInput = prompt("Edit your task:", e.parentNode.firstChild.nodeValue);
   
     e.parentNode.firstChild.nodeValue = userInput;
   
